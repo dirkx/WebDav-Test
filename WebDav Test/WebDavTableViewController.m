@@ -12,6 +12,7 @@
 #import "LEOWebDAVPropertyRequest.h"
 #import "LEOWebDAVDownloadRequest.h"
 #import "LEOWebDAVDeleteRequest.h"
+#import "PGDetailViewController.h"
 
 @interface WebDavTableViewController ()
 
@@ -38,15 +39,16 @@
      self.clearsSelectionOnViewWillAppear = NO;
      self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-    NSString *root=@"http://popsicl-dav.cloudapp.net/webdav/";
-    NSString *user=@"johnnyclem";
-    NSString *password=@"glowkin22";
+    NSString *root = @"http://popsicl-dav.cloudapp.net/webdav/";
+    NSString *user = @"johnnyclem";
+    NSString *password = @"glowkin22";
     
     _client = [[LEOWebDAVClient alloc] initWithRootURL:[NSURL URLWithString:root] andUserName:user andPassword:password];
     
-    LEOWebDAVPropertyRequest *request = [[LEOWebDAVPropertyRequest alloc] initWithPath:@"/"];
+    LEOWebDAVPropertyRequest *request = [[LEOWebDAVPropertyRequest alloc] initWithPath:_rootPath];
     [request setDelegate:self];
     [_client enqueueRequest:request];
+    NSLog(@"Requesting Contents Of: %@", _rootPath);
 
 //    LEOWebDAVDownloadRequest *downRequest = [[LEOWebDAVDownloadRequest alloc] initWithPath:@"/New-Clients.m4a"];
 //    [downRequest setDelegate:self];
@@ -89,13 +91,6 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (![_fileList[indexPath.row] isFolder]) {
-        [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];        
-    }
-}
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
@@ -113,28 +108,43 @@
         [_fileList removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
 }
 
 
 #pragma mark - Navigation
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LEOWebDAVItem *item = _fileList[indexPath.row];
+    
+    if (item.isFolder) {
+        UIStoryboard *sharedStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        WebDavTableViewController *webDavVC = [sharedStoryboard instantiateViewControllerWithIdentifier:@"WebDavVC"];
+        webDavVC.navigationItem.title = item.displayName;
+        webDavVC.rootPath = item.relativeHref;
+        [self.navigationController pushViewController:webDavVC animated:YES];
+    }
+
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    LEOWebDAVItem *item = _fileList[indexPath.row];
+
+    if (item.isFolder && [segue.identifier isEqualToString:@"showFolderContents"]) {
+        [[[segue destinationViewController] navigationItem] setTitle:item.displayName];
+        [[segue destinationViewController] setRootPath:item.relativeHref];
+    }
 }
 
 #pragma mark - DAVKit
-// The error can be a NSURLConnection error or a WebDAV error
+
 - (void)request:(LEOWebDAVRequest *)aRequest didFailWithError:(NSError *)error
 {
     NSLog(@"error:%@",[error description]);
 }
 
-// The resulting object varies depending on the request type
 - (void)request:(LEOWebDAVRequest *)aRequest didSucceedWithResult:(NSMutableArray *)result
 {
     if ([aRequest isKindOfClass:[LEOWebDAVPropertyRequest class]]) {
@@ -146,13 +156,5 @@
         NSLog(@"Deleted: %@", result);
     }
 }
-
-#pragma mark - ACConnect
-//- (void)client:(ACWebDAVClient*)client loadedMetadata:(ACWebDAVItem*)item
-//{
-//    NSLog(@"metadata:%@",item);
-//}
-
-
 
 @end

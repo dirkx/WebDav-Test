@@ -60,7 +60,7 @@
         #endif
 	}
 
-    NSMutableArray *result=[NSMutableArray array];
+    NSMutableArray *result = [NSMutableArray array];
     for (LEOWebDAVItem *item in items) {
         if (![item.displayName hasPrefix:@"."]) {
             [item setRootURL:self.rootURL];
@@ -74,6 +74,7 @@
             }
         }
     }
+    [result removeObjectAtIndex:0];
 	return result;
 }
 

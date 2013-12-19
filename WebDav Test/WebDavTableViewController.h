@@ -11,4 +11,6 @@
 
 @interface WebDavTableViewController : UITableViewController <LEOWebDAVRequestDelegate>
 
+@property (nonatomic, strong) NSString *rootPath;
+
 @end

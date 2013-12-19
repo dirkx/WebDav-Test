@@ -14,7 +14,6 @@
 		EF20A8E81862816200465A56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A8E71862816200465A56 /* main.m */; };
 		EF20A8EC1862816200465A56 /* PGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A8EB1862816200465A56 /* PGAppDelegate.m */; };
 		EF20A8EF1862816200465A56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF20A8ED1862816200465A56 /* Main.storyboard */; };
-		EF20A8F21862816200465A56 /* PGMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A8F11862816200465A56 /* PGMasterViewController.m */; };
 		EF20A8F51862816200465A56 /* PGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A8F41862816200465A56 /* PGDetailViewController.m */; };
 		EF20A8F71862816200465A56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF20A8F61862816200465A56 /* Images.xcassets */; };
 		EF20A8FE1862816200465A56 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF20A8FD1862816200465A56 /* XCTest.framework */; };
@@ -62,8 +61,6 @@
 		EF20A8EA1862816200465A56 /* PGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGAppDelegate.h; sourceTree = "<group>"; };
 		EF20A8EB1862816200465A56 /* PGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGAppDelegate.m; sourceTree = "<group>"; };
 		EF20A8EE1862816200465A56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EF20A8F01862816200465A56 /* PGMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGMasterViewController.h; sourceTree = "<group>"; };
-		EF20A8F11862816200465A56 /* PGMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGMasterViewController.m; sourceTree = "<group>"; };
 		EF20A8F31862816200465A56 /* PGDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGDetailViewController.h; sourceTree = "<group>"; };
 		EF20A8F41862816200465A56 /* PGDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGDetailViewController.m; sourceTree = "<group>"; };
 		EF20A8F61862816200465A56 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -168,8 +165,6 @@
 				EF20A8EA1862816200465A56 /* PGAppDelegate.h */,
 				EF20A8EB1862816200465A56 /* PGAppDelegate.m */,
 				EF20A8ED1862816200465A56 /* Main.storyboard */,
-				EF20A8F01862816200465A56 /* PGMasterViewController.h */,
-				EF20A8F11862816200465A56 /* PGMasterViewController.m */,
 				EF20A8F31862816200465A56 /* PGDetailViewController.h */,
 				EF20A8F41862816200465A56 /* PGDetailViewController.m */,
 				EF20A9421862817300465A56 /* WebDavTableViewController.h */,
@@ -358,7 +353,6 @@
 				EF20A93C1862816C00465A56 /* LEOWebDAVParser.m in Sources */,
 				EF20A8E81862816200465A56 /* main.m in Sources */,
 				EF20A93B1862816C00465A56 /* LEOWebDAVMoveRequest.m in Sources */,
-				EF20A8F21862816200465A56 /* PGMasterViewController.m in Sources */,
 				EF20A9391862816C00465A56 /* LEOWebDAVItem.m in Sources */,
 				EF20A9361862816C00465A56 /* LEOWebDAVCopyRequest.m in Sources */,
 				EF20A9371862816C00465A56 /* LEOWebDAVDeleteRequest.m in Sources */,

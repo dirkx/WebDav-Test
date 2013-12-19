@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LEOWebDAVRequest.h"
+#import "LEOWebDAVClient.h"
+#import "LEOWebDAVItem.h"
+#import "LEOWebDAVPropertyRequest.h"
+#import "LEOWebDAVDownloadRequest.h"
+#import "LEOWebDAVDeleteRequest.h"
 
 @interface PGDetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) LEOWebDAVItem *detailItem;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end
