@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF20A8DC1862816200465A56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF20A8DB1862816200465A56 /* Foundation.framework */; };
+		EF20A8DE1862816200465A56 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF20A8DD1862816200465A56 /* CoreGraphics.framework */; };
+		EF20A8E01862816200465A56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF20A8DF1862816200465A56 /* UIKit.framework */; };
+		EF20A8E61862816200465A56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF20A8E41862816200465A56 /* InfoPlist.strings */; };
+		EF20A8E81862816200465A56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A8E71862816200465A56 /* main.m */; };
+		EF20A8EC1862816200465A56 /* PGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A8EB1862816200465A56 /* PGAppDelegate.m */; };
+		EF20A8EF1862816200465A56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF20A8ED1862816200465A56 /* Main.storyboard */; };
+		EF20A8F21862816200465A56 /* PGMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A8F11862816200465A56 /* PGMasterViewController.m */; };
+		EF20A8F51862816200465A56 /* PGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A8F41862816200465A56 /* PGDetailViewController.m */; };
+		EF20A8F71862816200465A56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF20A8F61862816200465A56 /* Images.xcassets */; };
+		EF20A8FE1862816200465A56 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF20A8FD1862816200465A56 /* XCTest.framework */; };
+		EF20A8FF1862816200465A56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF20A8DB1862816200465A56 /* Foundation.framework */; };
+		EF20A9001862816200465A56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF20A8DF1862816200465A56 /* UIKit.framework */; };
+		EF20A9081862816200465A56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF20A9061862816200465A56 /* InfoPlist.strings */; };
+		EF20A90A1862816200465A56 /* WebDav_TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A9091862816200465A56 /* WebDav_TestTests.m */; };
+		EF20A9331862816C00465A56 /* LEOContentTypeConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A9151862816C00465A56 /* LEOContentTypeConvert.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A9341862816C00465A56 /* LEOWebDAVBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A9171862816C00465A56 /* LEOWebDAVBaseRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A9351862816C00465A56 /* LEOWebDAVClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A9191862816C00465A56 /* LEOWebDAVClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A9361862816C00465A56 /* LEOWebDAVCopyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A91B1862816C00465A56 /* LEOWebDAVCopyRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A9371862816C00465A56 /* LEOWebDAVDeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A91E1862816C00465A56 /* LEOWebDAVDeleteRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A9381862816C00465A56 /* LEOWebDAVDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A9201862816C00465A56 /* LEOWebDAVDownloadRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A9391862816C00465A56 /* LEOWebDAVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A9221862816C00465A56 /* LEOWebDAVItem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A93A1862816C00465A56 /* LEOWebDAVMakeCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A9241862816C00465A56 /* LEOWebDAVMakeCollectionRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A93B1862816C00465A56 /* LEOWebDAVMoveRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A9261862816C00465A56 /* LEOWebDAVMoveRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A93C1862816C00465A56 /* LEOWebDAVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A9281862816C00465A56 /* LEOWebDAVParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A93D1862816C00465A56 /* LEOWebDAVPropertyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A92A1862816C00465A56 /* LEOWebDAVPropertyRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A93E1862816C00465A56 /* LEOWebDAVRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A92C1862816C00465A56 /* LEOWebDAVRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A93F1862816C00465A56 /* LEOWebDAVUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A92E1862816C00465A56 /* LEOWebDAVUploadRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A9401862816C00465A56 /* LEOWebDAVURL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A9301862816C00465A56 /* LEOWebDAVURL.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A9411862816C00465A56 /* LEOWebDAVUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A9321862816C00465A56 /* LEOWebDAVUtility.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF20A9441862817300465A56 /* WebDavTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF20A9431862817300465A56 /* WebDavTableViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF20A9011862816200465A56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF20A8D01862816200465A56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF20A8D71862816200465A56;
+			remoteInfo = "WebDav Test";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EF20A8D81862816200465A56 /* WebDav Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WebDav Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF20A8DB1862816200465A56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EF20A8DD1862816200465A56 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EF20A8DF1862816200465A56 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EF20A8E31862816200465A56 /* WebDav Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WebDav Test-Info.plist"; sourceTree = "<group>"; };
+		EF20A8E51862816200465A56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EF20A8E71862816200465A56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EF20A8E91862816200465A56 /* WebDav Test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebDav Test-Prefix.pch"; sourceTree = "<group>"; };
+		EF20A8EA1862816200465A56 /* PGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGAppDelegate.h; sourceTree = "<group>"; };
+		EF20A8EB1862816200465A56 /* PGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGAppDelegate.m; sourceTree = "<group>"; };
+		EF20A8EE1862816200465A56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF20A8F01862816200465A56 /* PGMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGMasterViewController.h; sourceTree = "<group>"; };
+		EF20A8F11862816200465A56 /* PGMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGMasterViewController.m; sourceTree = "<group>"; };
+		EF20A8F31862816200465A56 /* PGDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGDetailViewController.h; sourceTree = "<group>"; };
+		EF20A8F41862816200465A56 /* PGDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGDetailViewController.m; sourceTree = "<group>"; };
+		EF20A8F61862816200465A56 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EF20A8FC1862816200465A56 /* WebDav TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WebDav TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF20A8FD1862816200465A56 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		EF20A9051862816200465A56 /* WebDav TestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WebDav TestTests-Info.plist"; sourceTree = "<group>"; };
+		EF20A9071862816200465A56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EF20A9091862816200465A56 /* WebDav_TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebDav_TestTests.m; sourceTree = "<group>"; };
+		EF20A9141862816C00465A56 /* LEOContentTypeConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOContentTypeConvert.h; sourceTree = "<group>"; };
+		EF20A9151862816C00465A56 /* LEOContentTypeConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOContentTypeConvert.m; sourceTree = "<group>"; };
+		EF20A9161862816C00465A56 /* LEOWebDAVBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVBaseRequest.h; sourceTree = "<group>"; };
+		EF20A9171862816C00465A56 /* LEOWebDAVBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVBaseRequest.m; sourceTree = "<group>"; };
+		EF20A9181862816C00465A56 /* LEOWebDAVClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVClient.h; sourceTree = "<group>"; };
+		EF20A9191862816C00465A56 /* LEOWebDAVClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVClient.m; sourceTree = "<group>"; };
+		EF20A91A1862816C00465A56 /* LEOWebDAVCopyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVCopyRequest.h; sourceTree = "<group>"; };
+		EF20A91B1862816C00465A56 /* LEOWebDAVCopyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVCopyRequest.m; sourceTree = "<group>"; };
+		EF20A91C1862816C00465A56 /* LEOWebDAVDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVDefines.h; sourceTree = "<group>"; };
+		EF20A91D1862816C00465A56 /* LEOWebDAVDeleteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVDeleteRequest.h; sourceTree = "<group>"; };
+		EF20A91E1862816C00465A56 /* LEOWebDAVDeleteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVDeleteRequest.m; sourceTree = "<group>"; };
+		EF20A91F1862816C00465A56 /* LEOWebDAVDownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVDownloadRequest.h; sourceTree = "<group>"; };
+		EF20A9201862816C00465A56 /* LEOWebDAVDownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVDownloadRequest.m; sourceTree = "<group>"; };
+		EF20A9211862816C00465A56 /* LEOWebDAVItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVItem.h; sourceTree = "<group>"; };
+		EF20A9221862816C00465A56 /* LEOWebDAVItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVItem.m; sourceTree = "<group>"; };
+		EF20A9231862816C00465A56 /* LEOWebDAVMakeCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVMakeCollectionRequest.h; sourceTree = "<group>"; };
+		EF20A9241862816C00465A56 /* LEOWebDAVMakeCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVMakeCollectionRequest.m; sourceTree = "<group>"; };
+		EF20A9251862816C00465A56 /* LEOWebDAVMoveRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVMoveRequest.h; sourceTree = "<group>"; };
+		EF20A9261862816C00465A56 /* LEOWebDAVMoveRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVMoveRequest.m; sourceTree = "<group>"; };
+		EF20A9271862816C00465A56 /* LEOWebDAVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVParser.h; sourceTree = "<group>"; };
+		EF20A9281862816C00465A56 /* LEOWebDAVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVParser.m; sourceTree = "<group>"; };
+		EF20A9291862816C00465A56 /* LEOWebDAVPropertyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVPropertyRequest.h; sourceTree = "<group>"; };
+		EF20A92A1862816C00465A56 /* LEOWebDAVPropertyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVPropertyRequest.m; sourceTree = "<group>"; };
+		EF20A92B1862816C00465A56 /* LEOWebDAVRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVRequest.h; sourceTree = "<group>"; };
+		EF20A92C1862816C00465A56 /* LEOWebDAVRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVRequest.m; sourceTree = "<group>"; };
+		EF20A92D1862816C00465A56 /* LEOWebDAVUploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVUploadRequest.h; sourceTree = "<group>"; };
+		EF20A92E1862816C00465A56 /* LEOWebDAVUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVUploadRequest.m; sourceTree = "<group>"; };
+		EF20A92F1862816C00465A56 /* LEOWebDAVURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVURL.h; sourceTree = "<group>"; };
+		EF20A9301862816C00465A56 /* LEOWebDAVURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVURL.m; sourceTree = "<group>"; };
+		EF20A9311862816C00465A56 /* LEOWebDAVUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVUtility.h; sourceTree = "<group>"; };
+		EF20A9321862816C00465A56 /* LEOWebDAVUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVUtility.m; sourceTree = "<group>"; };
+		EF20A9421862817300465A56 /* WebDavTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebDavTableViewController.h; sourceTree = "<group>"; };
+		EF20A9431862817300465A56 /* WebDavTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebDavTableViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF20A8D51862816200465A56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF20A8DE1862816200465A56 /* CoreGraphics.framework in Frameworks */,
+				EF20A8E01862816200465A56 /* UIKit.framework in Frameworks */,
+				EF20A8DC1862816200465A56 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF20A8F91862816200465A56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF20A8FE1862816200465A56 /* XCTest.framework in Frameworks */,
+				EF20A9001862816200465A56 /* UIKit.framework in Frameworks */,
+				EF20A8FF1862816200465A56 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF20A8CF1862816200465A56 = {
+			isa = PBXGroup;
+			children = (
+				EF20A8E11862816200465A56 /* WebDav Test */,
+				EF20A9031862816200465A56 /* WebDav TestTests */,
+				EF20A8DA1862816200465A56 /* Frameworks */,
+				EF20A8D91862816200465A56 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF20A8D91862816200465A56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF20A8D81862816200465A56 /* WebDav Test.app */,
+				EF20A8FC1862816200465A56 /* WebDav TestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF20A8DA1862816200465A56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EF20A8DB1862816200465A56 /* Foundation.framework */,
+				EF20A8DD1862816200465A56 /* CoreGraphics.framework */,
+				EF20A8DF1862816200465A56 /* UIKit.framework */,
+				EF20A8FD1862816200465A56 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF20A8E11862816200465A56 /* WebDav Test */ = {
+			isa = PBXGroup;
+			children = (
+				EF20A9131862816C00465A56 /* LEOWebDAV */,
+				EF20A8EA1862816200465A56 /* PGAppDelegate.h */,
+				EF20A8EB1862816200465A56 /* PGAppDelegate.m */,
+				EF20A8ED1862816200465A56 /* Main.storyboard */,
+				EF20A8F01862816200465A56 /* PGMasterViewController.h */,
+				EF20A8F11862816200465A56 /* PGMasterViewController.m */,
+				EF20A8F31862816200465A56 /* PGDetailViewController.h */,
+				EF20A8F41862816200465A56 /* PGDetailViewController.m */,
+				EF20A9421862817300465A56 /* WebDavTableViewController.h */,
+				EF20A9431862817300465A56 /* WebDavTableViewController.m */,
+				EF20A8F61862816200465A56 /* Images.xcassets */,
+				EF20A8E21862816200465A56 /* Supporting Files */,
+			);
+			path = "WebDav Test";
+			sourceTree = "<group>";
+		};
+		EF20A8E21862816200465A56 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF20A8E31862816200465A56 /* WebDav Test-Info.plist */,
+				EF20A8E41862816200465A56 /* InfoPlist.strings */,
+				EF20A8E71862816200465A56 /* main.m */,
+				EF20A8E91862816200465A56 /* WebDav Test-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF20A9031862816200465A56 /* WebDav TestTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF20A9091862816200465A56 /* WebDav_TestTests.m */,
+				EF20A9041862816200465A56 /* Supporting Files */,
+			);
+			path = "WebDav TestTests";
+			sourceTree = "<group>";
+		};
+		EF20A9041862816200465A56 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF20A9051862816200465A56 /* WebDav TestTests-Info.plist */,
+				EF20A9061862816200465A56 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF20A9131862816C00465A56 /* LEOWebDAV */ = {
+			isa = PBXGroup;
+			children = (
+				EF20A9141862816C00465A56 /* LEOContentTypeConvert.h */,
+				EF20A9151862816C00465A56 /* LEOContentTypeConvert.m */,
+				EF20A9161862816C00465A56 /* LEOWebDAVBaseRequest.h */,
+				EF20A9171862816C00465A56 /* LEOWebDAVBaseRequest.m */,
+				EF20A9181862816C00465A56 /* LEOWebDAVClient.h */,
+				EF20A9191862816C00465A56 /* LEOWebDAVClient.m */,
+				EF20A91A1862816C00465A56 /* LEOWebDAVCopyRequest.h */,
+				EF20A91B1862816C00465A56 /* LEOWebDAVCopyRequest.m */,
+				EF20A91C1862816C00465A56 /* LEOWebDAVDefines.h */,
+				EF20A91D1862816C00465A56 /* LEOWebDAVDeleteRequest.h */,
+				EF20A91E1862816C00465A56 /* LEOWebDAVDeleteRequest.m */,
+				EF20A91F1862816C00465A56 /* LEOWebDAVDownloadRequest.h */,
+				EF20A9201862816C00465A56 /* LEOWebDAVDownloadRequest.m */,
+				EF20A9211862816C00465A56 /* LEOWebDAVItem.h */,
+				EF20A9221862816C00465A56 /* LEOWebDAVItem.m */,
+				EF20A9231862816C00465A56 /* LEOWebDAVMakeCollectionRequest.h */,
+				EF20A9241862816C00465A56 /* LEOWebDAVMakeCollectionRequest.m */,
+				EF20A9251862816C00465A56 /* LEOWebDAVMoveRequest.h */,
+				EF20A9261862816C00465A56 /* LEOWebDAVMoveRequest.m */,
+				EF20A9271862816C00465A56 /* LEOWebDAVParser.h */,
+				EF20A9281862816C00465A56 /* LEOWebDAVParser.m */,
+				EF20A9291862816C00465A56 /* LEOWebDAVPropertyRequest.h */,
+				EF20A92A1862816C00465A56 /* LEOWebDAVPropertyRequest.m */,
+				EF20A92B1862816C00465A56 /* LEOWebDAVRequest.h */,
+				EF20A92C1862816C00465A56 /* LEOWebDAVRequest.m */,
+				EF20A92D1862816C00465A56 /* LEOWebDAVUploadRequest.h */,
+				EF20A92E1862816C00465A56 /* LEOWebDAVUploadRequest.m */,
+				EF20A92F1862816C00465A56 /* LEOWebDAVURL.h */,
+				EF20A9301862816C00465A56 /* LEOWebDAVURL.m */,
+				EF20A9311862816C00465A56 /* LEOWebDAVUtility.h */,
+				EF20A9321862816C00465A56 /* LEOWebDAVUtility.m */,
+			);
+			path = LEOWebDAV;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF20A8D71862816200465A56 /* WebDav Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF20A90D1862816200465A56 /* Build configuration list for PBXNativeTarget "WebDav Test" */;
+			buildPhases = (
+				EF20A8D41862816200465A56 /* Sources */,
+				EF20A8D51862816200465A56 /* Frameworks */,
+				EF20A8D61862816200465A56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WebDav Test";
+			productName = "WebDav Test";
+			productReference = EF20A8D81862816200465A56 /* WebDav Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EF20A8FB1862816200465A56 /* WebDav TestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF20A9101862816200465A56 /* Build configuration list for PBXNativeTarget "WebDav TestTests" */;
+			buildPhases = (
+				EF20A8F81862816200465A56 /* Sources */,
+				EF20A8F91862816200465A56 /* Frameworks */,
+				EF20A8FA1862816200465A56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF20A9021862816200465A56 /* PBXTargetDependency */,
+			);
+			name = "WebDav TestTests";
+			productName = "WebDav TestTests";
+			productReference = EF20A8FC1862816200465A56 /* WebDav TestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF20A8D01862816200465A56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PG;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Pretty Grest";
+				TargetAttributes = {
+					EF20A8FB1862816200465A56 = {
+						TestTargetID = EF20A8D71862816200465A56;
+					};
+				};
+			};
+			buildConfigurationList = EF20A8D31862816200465A56 /* Build configuration list for PBXProject "WebDav Test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF20A8CF1862816200465A56;
+			productRefGroup = EF20A8D91862816200465A56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF20A8D71862816200465A56 /* WebDav Test */,
+				EF20A8FB1862816200465A56 /* WebDav TestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF20A8D61862816200465A56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF20A8F71862816200465A56 /* Images.xcassets in Resources */,
+				EF20A8E61862816200465A56 /* InfoPlist.strings in Resources */,
+				EF20A8EF1862816200465A56 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF20A8FA1862816200465A56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF20A9081862816200465A56 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF20A8D41862816200465A56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF20A9351862816C00465A56 /* LEOWebDAVClient.m in Sources */,
+				EF20A9381862816C00465A56 /* LEOWebDAVDownloadRequest.m in Sources */,
+				EF20A93A1862816C00465A56 /* LEOWebDAVMakeCollectionRequest.m in Sources */,
+				EF20A8F51862816200465A56 /* PGDetailViewController.m in Sources */,
+				EF20A9331862816C00465A56 /* LEOContentTypeConvert.m in Sources */,
+				EF20A9411862816C00465A56 /* LEOWebDAVUtility.m in Sources */,
+				EF20A9401862816C00465A56 /* LEOWebDAVURL.m in Sources */,
+				EF20A9341862816C00465A56 /* LEOWebDAVBaseRequest.m in Sources */,
+				EF20A93D1862816C00465A56 /* LEOWebDAVPropertyRequest.m in Sources */,
+				EF20A93F1862816C00465A56 /* LEOWebDAVUploadRequest.m in Sources */,
+				EF20A93C1862816C00465A56 /* LEOWebDAVParser.m in Sources */,
+				EF20A8E81862816200465A56 /* main.m in Sources */,
+				EF20A93B1862816C00465A56 /* LEOWebDAVMoveRequest.m in Sources */,
+				EF20A8F21862816200465A56 /* PGMasterViewController.m in Sources */,
+				EF20A9391862816C00465A56 /* LEOWebDAVItem.m in Sources */,
+				EF20A9361862816C00465A56 /* LEOWebDAVCopyRequest.m in Sources */,
+				EF20A9371862816C00465A56 /* LEOWebDAVDeleteRequest.m in Sources */,
+				EF20A8EC1862816200465A56 /* PGAppDelegate.m in Sources */,
+				EF20A9441862817300465A56 /* WebDavTableViewController.m in Sources */,
+				EF20A93E1862816C00465A56 /* LEOWebDAVRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF20A8F81862816200465A56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF20A90A1862816200465A56 /* WebDav_TestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF20A9021862816200465A56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF20A8D71862816200465A56 /* WebDav Test */;
+			targetProxy = EF20A9011862816200465A56 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EF20A8E41862816200465A56 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF20A8E51862816200465A56 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EF20A8ED1862816200465A56 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF20A8EE1862816200465A56 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF20A9061862816200465A56 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF20A9071862816200465A56 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF20A90B1862816200465A56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EF20A90C1862816200465A56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF20A90E1862816200465A56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WebDav Test/WebDav Test-Prefix.pch";
+				INFOPLIST_FILE = "WebDav Test/WebDav Test-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EF20A90F1862816200465A56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WebDav Test/WebDav Test-Prefix.pch";
+				INFOPLIST_FILE = "WebDav Test/WebDav Test-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EF20A9111862816200465A56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WebDav Test.app/WebDav Test";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WebDav Test/WebDav Test-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "WebDav TestTests/WebDav TestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		EF20A9121862816200465A56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WebDav Test.app/WebDav Test";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WebDav Test/WebDav Test-Prefix.pch";
+				INFOPLIST_FILE = "WebDav TestTests/WebDav TestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF20A8D31862816200465A56 /* Build configuration list for PBXProject "WebDav Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF20A90B1862816200465A56 /* Debug */,
+				EF20A90C1862816200465A56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF20A90D1862816200465A56 /* Build configuration list for PBXNativeTarget "WebDav Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF20A90E1862816200465A56 /* Debug */,
+				EF20A90F1862816200465A56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EF20A9101862816200465A56 /* Build configuration list for PBXNativeTarget "WebDav TestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF20A9111862816200465A56 /* Debug */,
+				EF20A9121862816200465A56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF20A8D01862816200465A56 /* Project object */;
+}
