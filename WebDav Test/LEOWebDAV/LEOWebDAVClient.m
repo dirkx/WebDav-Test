@@ -76,7 +76,7 @@
 
 -(void)cancelRequest
 {
-    NSLog(@"current queue:%d",[self requestCount]);
+    NSLog(@"current queue:%lu",(unsigned long)[self requestCount]);
     [_queue cancelAllOperations];
 }
 
