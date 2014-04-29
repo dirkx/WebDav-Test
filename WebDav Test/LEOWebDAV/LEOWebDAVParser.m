@@ -145,7 +145,7 @@
 		[_items addObject:_currentItem];
 		
 		_currentItem = nil;
-	}
+    }
 	
 	_currentString = nil;
 }

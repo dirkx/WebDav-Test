@@ -7,15 +7,59 @@
 //
 
 #import "PGAppDelegate.h"
+#import "WebDavTableViewController.h"
 
 @implementation PGAppDelegate
+@synthesize client;
+
++(void)initialize {
+    NSString *root = @"<none>";
+    NSString *username = @"<none>";
+    NSString *password = @"";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults registerDefaults:@{
+                                 @"username" : username,
+                                 @"password": password,
+                                 @"root" : root
+                                 }
+     ];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    return YES;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [self reconnectTo:[defaults objectForKey:@"root"]
+         withUsername:[defaults objectForKey:@"username"]
+         withPassword:[defaults objectForKey:@"password"]];
+    
+        return YES;
 }
-							
+
+-(void)reconnectTo:(NSString *)root withUsername:(NSString *)username withPassword:(NSString *)password {
+
+    if (!root || !username || !password)
+        return;
+    
+    NSURL * url = [NSURL URLWithString:root];
+    if (!url)
+        return;
+    
+    if ([self.client.userName isEqualToString:username] && [self.client.password isEqualToString:password] && [self.client.rootURL isEqual:url])
+        return;
+
+    [self.client cancelRequest];
+
+    self.client = [[LEOWebDAVClient alloc] initWithRootURL:url andUserName:username andPassword:password];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:username forKey:@"username"];
+    [defaults setValue:password forKey:@"password"];
+    [defaults setValue:root forKey:@"root"];
+    [defaults synchronize];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

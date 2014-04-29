@@ -14,12 +14,14 @@
 #import "LEOWebDAVDeleteRequest.h"
 #import "PGDetailViewController.h"
 
-@interface WebDavTableViewController ()
+#import "PGAppDelegate.h"
 
+
+@interface WebDavTableViewController ()
 @property (nonatomic, strong) NSMutableArray *fileList;
 @property (nonatomic, strong) NSMutableArray *folderList;
-@property (nonatomic, strong) LEOWebDAVClient *client;
-
+@property (nonatomic, strong) NSString *recentError;
+@property (nonatomic, strong) UIActivityIndicatorView *activityViewer;
 @end
 
 @implementation WebDavTableViewController
@@ -38,21 +40,31 @@
     [super viewDidLoad];
      self.clearsSelectionOnViewWillAppear = NO;
      self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
-    NSString *root = @"http://popsicl-dav.cloudapp.net/webdav/";
-    NSString *user = @"johnnyclem";
-    NSString *password = @"glowkin22";
+#if 0
+    if ([self.navigationController.viewControllers count]==1) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699"
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:self
+                                                                                action:@selector(settingsButtonPressed:)];
+    };
+#endif
     
-    _client = [[LEOWebDAVClient alloc] initWithRootURL:[NSURL URLWithString:root] andUserName:user andPassword:password];
+    self.activityViewer = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     
-    LEOWebDAVPropertyRequest *request = [[LEOWebDAVPropertyRequest alloc] initWithPath:_rootPath];
-    [request setDelegate:self];
-    [_client enqueueRequest:request];
-    NSLog(@"Requesting Contents Of: %@", _rootPath);
+    NSMutableArray * btns = [NSMutableArray arrayWithArray:self.navigationItem.rightBarButtonItems];
+    [btns addObject:[[UIBarButtonItem alloc] initWithCustomView:self.activityViewer]];
+    self.navigationItem.rightBarButtonItems = btns;
+    [self.activityViewer stopAnimating];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshAction:) forControlEvents: UIControlEventValueChanged];
 
-//    LEOWebDAVDownloadRequest *downRequest = [[LEOWebDAVDownloadRequest alloc] initWithPath:@"/New-Clients.m4a"];
-//    [downRequest setDelegate:self];
-//    [_client enqueueRequest:downRequest];
+    [(PGAppDelegate *)[UIApplication sharedApplication].delegate addObserver:self
+                       forKeyPath:@"client"
+                       options:NSKeyValueObservingOptionNew
+                       context:nil];
+    
+    [self refreshAction:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,6 +73,37 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma some UIRefreshControl stuff to detect reloads
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"client"]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+
+        self.fileList = nil;
+        [self.tableView reloadData];
+        
+        [self refreshAction:self];
+    }
+}
+
+-(void)refreshAction:(id)sender {
+    [self.refreshControl beginRefreshing];
+
+    if (sender != self.refreshControl)
+        [self.activityViewer startAnimating];
+
+    self.recentError = nil;
+
+    LEOWebDAVPropertyRequest *request = [[LEOWebDAVPropertyRequest alloc] initWithPath:_rootPath];
+    [request setDelegate:self];
+    
+    [((PGAppDelegate *)[UIApplication sharedApplication].delegate).client enqueueRequest:request];
+}
+
+-(void)resetRefresher:(id)sender {
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"fetching"];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -70,11 +113,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.recentError)
+        return 1;
+
     return _fileList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (self.recentError){
+        static NSString *ErrorCellIdentifier = @"ErrorCell";
+        UITableViewCell *errorCell = [tableView dequeueReusableCellWithIdentifier:ErrorCellIdentifier forIndexPath:indexPath];
+        
+        errorCell.textLabel.text = @"no data - fetch failed";
+        [errorCell.textLabel setTextColor:[UIColor grayColor]];
+        [errorCell.textLabel setTextAlignment:NSTextAlignmentCenter];
+
+        errorCell.detailTextLabel.text = self.recentError;
+
+        return errorCell;
+    }
+    
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     LEOWebDAVItem *item = _fileList[indexPath.row];
@@ -91,8 +151,11 @@
     return cell;
 }
 
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.recentError)
+        return NO;
     return YES;
 }
 
@@ -103,7 +166,8 @@
         LEOWebDAVItem *item = _fileList[indexPath.row];
         LEOWebDAVDeleteRequest *deleteRequest = [[LEOWebDAVDeleteRequest alloc] initWithPath:item.relativeHref];
         [deleteRequest setDelegate:self];
-        [_client enqueueRequest:deleteRequest];
+
+        [((PGAppDelegate *)[UIApplication sharedApplication].delegate).client enqueueRequest:deleteRequest];
 
         [_fileList removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -115,16 +179,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.recentError)
+        return;
+
     LEOWebDAVItem *item = _fileList[indexPath.row];
     
     if (item.isFolder) {
         UIStoryboard *sharedStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
         WebDavTableViewController *webDavVC = [sharedStoryboard instantiateViewControllerWithIdentifier:@"WebDavVC"];
         webDavVC.navigationItem.title = item.displayName;
         webDavVC.rootPath = item.relativeHref;
+        
         [self.navigationController pushViewController:webDavVC animated:YES];
-    }
 
+    } else //if ([item.contentType isEqualToString:@"text/plain"])
+    {
+        PGDetailViewController * pgvc = [[PGDetailViewController alloc] init];
+        pgvc.detailItem = item;
+        [self.navigationController pushViewController:pgvc animated:YES];        
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -138,22 +212,46 @@
     }
 }
 
+
 #pragma mark - DAVKit
 
-- (void)request:(LEOWebDAVRequest *)aRequest didFailWithError:(NSError *)error
-{
-    NSLog(@"error:%@",[error description]);
+-(void)request:(LEOWebDAVRequest *)request didReceivedProgress:(float)percent {
+    if (percent>0)
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%02.f%%", percent*100]];
 }
 
-- (void)request:(LEOWebDAVRequest *)aRequest didSucceedWithResult:(NSMutableArray *)result
+-(void)request:(LEOWebDAVRequest *)request didSendBodyData:(NSUInteger)percent {
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"receiving"];
+}
+- (void)request:(LEOWebDAVRequest *)aRequest didFailWithError:(NSError *)error
 {
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@""];
+    [self performSelectorInBackground:@selector(resetRefresher:) withObject:self];
+    
+    self.recentError = [error localizedDescription];
+    
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+    [self.activityViewer stopAnimating];
+}
+
+- (void)request:(LEOWebDAVRequest *)aRequest didSucceedWithResult:(id)result
+{
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@""];
+    [self.refreshControl endRefreshing];
+    [self.activityViewer stopAnimating];
+    [self performSelectorInBackground:@selector(resetRefresher:) withObject:self];
+
     if ([aRequest isKindOfClass:[LEOWebDAVPropertyRequest class]]) {
-        _fileList = result;
+        _fileList = (NSMutableArray *)result;
         [self.tableView reloadData];
+        
     } else if ([aRequest isKindOfClass:[LEOWebDAVDownloadRequest class]] && result){
+        // Kind of should not happen here - relegated to the PGDetailViewController
+        //
         NSLog(@"Downloaded: %@", result);
     } else if ([aRequest isKindOfClass:[LEOWebDAVDeleteRequest class]]) {
-        NSLog(@"Deleted: %@", result);
+        NSLog(@"Deleted: %@ %@", [result class], result);
     }
 }
 

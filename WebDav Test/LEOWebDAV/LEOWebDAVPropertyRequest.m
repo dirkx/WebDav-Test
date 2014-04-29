@@ -64,8 +64,8 @@
     for (LEOWebDAVItem *item in items) {
         if (![item.displayName hasPrefix:@"."]) {
             [item setRootURL:self.rootURL];
-            NSLog(@"path:%@,   rel:%@",self.path,item.relativeHref);
-            NSLog(@"type:%@",item.contentType);
+//            NSLog(@"path:%@,   rel:%@",self.path,item.relativeHref);
+//            NSLog(@"type:%@",item.contentType);
             if ([item.contentType isEqualToString:@"httpd/unix-directory"]) {
                 item.isFolder = YES;
             }

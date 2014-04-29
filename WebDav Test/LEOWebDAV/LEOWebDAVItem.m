@@ -95,7 +95,9 @@
     if([root rangeOfString:@"%"].length == 0) {
         temp = [temp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
-    _relativeHref=[[NSString alloc] initWithFormat:@"%@",temp];
+    // _relativeHref = [[NSString alloc] initWithFormat:@"%@",temp];
+    
+    _relativeHref = [[[NSURL URLWithString:temp] relativePath] copy];
 }
 
 -(NSString *)contentSize

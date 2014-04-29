@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LEOWebDAVClient.h"
+#import "WebDavTableViewController.h"
 
 @interface PGAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) IBOutlet UIWindow *window;
 
+@property (nonatomic, strong) LEOWebDAVClient *client;
+
+-(void)reconnectTo:(NSString *)host withUsername:(NSString *)username withPassword:(NSString *)password;
 @end
